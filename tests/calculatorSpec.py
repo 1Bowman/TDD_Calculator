@@ -33,7 +33,7 @@ class TestMulFunctions(unittest.TestCase):
 
     def test_mul_negatives(self):
         self.assertEqual(calculator.mul(-1, 12), -12.0)
-        
+
 
 if __name__ == "__main__":
     unittest.main()
