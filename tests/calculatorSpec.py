@@ -35,5 +35,18 @@ class TestMulFunctions(unittest.TestCase):
         self.assertEqual(calculator.mul(-1, 12), -12.0)
 
 
+class TestDivFunctions(unittest.TestCase):
+
+    def test_div_floats(self):
+        self.assertEqual(calculator.div(100.0, 10.0), 10.0)
+
+    def test_div_ints(self):
+        self.assertEqual(calculator.div(15, 10), 1.5)
+
+    def test_div_negatives(self):
+        self.assertEqual(calculator.div(-1, 10), -.1)
+
+
 if __name__ == "__main__":
     unittest.main()
+
