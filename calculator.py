@@ -13,6 +13,7 @@ def sub(val1, val2):
 def mul(val1, val2):
     return float(val1) * float(val2)
 
+  
 def div(val1, val2):
     return float(val1) / float(val2)
 
