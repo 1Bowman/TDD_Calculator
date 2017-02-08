@@ -46,7 +46,21 @@ class TestDivFunctions(unittest.TestCase):
     def test_div_negatives(self):
         self.assertEqual(calculator.div(-1, 10), -.1)
 
+class TestControllerFunctions(unittest.TestCase):
+    def test_valid_input_add(self):
+        self.assertEquals(isinstance(calculator.controller('1.5+1'), float), True)
 
+    def test_valid_input_sub(self):
+        self.assertEquals(isinstance(calculator.controller('1.5-1'), float), True)
+
+    def test_valid_input_mul(self):
+        self.assertEquals(isinstance(calculator.controller('1.5*1'), float), True)
+
+    def test_valid_input_div(self):
+        self.assertEquals(isinstance(calculator.controller('1.5/1'), float), True)
+
+    def test_invalid_input_div(self):
+        self.assertEquals(calculator.controller('abc'), 'Incorrect expression')
 if __name__ == "__main__":
     unittest.main()
 

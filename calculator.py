@@ -1,14 +1,25 @@
 import re
 
 
-def view():
-    while True:
-        input_string = take_user_input()
-        pattern = re.search('\d*(\.\d+)?', input_string)
-        if pattern:
-            print(pattern)
-        else:
-            print("Incorrect expression")
+def controller(input_string):
+    m = re.match('(\d+(\.\d+)?)(\+|-|\*|/)(\d+(\.\d+)?)', input_string)
+    try:
+        val1 = m.group(1)
+        operator = m.group(3)
+        val2 = m.group(4)
+    except:
+        return 'Incorrect expression'
+
+    if operator == '+':
+        return add(val1, val2)
+    elif operator == '-':
+        return sub(val1, val2)
+    elif operator == '*':
+        return mul(val1, val2)
+    elif operator == '/':
+        return div(val1, val2)
+    else:
+        return 'Incorrect expression'
 
 
 def add(val1, val2):
@@ -31,4 +42,6 @@ def take_user_input():
     return str(input())
 
 if __name__ == "__main__":
-    view()
+    while True:
+        userInput = take_user_input()
+        controller(userInput)
